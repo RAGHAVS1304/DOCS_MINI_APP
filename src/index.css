@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ *{
+    font-family: 'Afacad', sans-serif;
+ }
+    
+ ::selection{
+ color: rgb(188, 143, 20);
+ }
