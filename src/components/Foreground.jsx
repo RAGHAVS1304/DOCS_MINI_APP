@@ -13,16 +13,13 @@ function Foreground() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://newsapi.org/v2/top-headlines",
-          {
-            params: {
-              country: "us", 
-              apiKey: "1075f3ddad9a4cecbf4ef04645265202",
-            },
-          }
-        );
-        console.log(response.data.articles); 
+        const response = await axios.get("https://gnews.io/api/v4/top-headlines", {
+          params: {
+            country: "us", 
+            token: "73ae2d5523f3ac1d45856cc078a8e371",
+          },
+        });
+        console.log(response.data.articles);
         const articles = response.data.articles.slice(0, 6).map((article) => ({
           desc: article.title,
           filesize: `${article.source.name}`,
@@ -30,9 +27,9 @@ function Foreground() {
           tag: {
             isOpen: true,
             tagTitle: "Read More",
-            tagColor: "green", 
+            tagColor: "green",
           },
-          url: article.url, 
+          url: article.url,
         }));
         setData(articles);
       } catch (error) {
